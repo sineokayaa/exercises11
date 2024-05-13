@@ -5,6 +5,9 @@ pygame.init()
 
 
 class Molecule:
+    '''
+    A class representing a molecule.
+    '''
     screen = pygame.display.set_mode((800, 700))
     colors = [(220, 20, 60), (255, 69, 0), (255, 215, 0), (255, 0, 255), (30, 144, 255),
               (105, 105, 105), (240, 255, 240)]
@@ -28,6 +31,9 @@ class Molecule:
         return str(f'{self.color}-{self.radius}')
 
     def moving_molecule(self):
+        '''
+        Move the molecule within the screen boundaries.
+        '''
 
         clock = pygame.time.Clock()
 
@@ -60,6 +66,9 @@ class Molecule:
         clock.tick(1000)
 
     def draw(self):
+        '''
+        Draw the molecule within the screen boundaries.
+        '''
         pygame.draw.circle(Molecule.screen, self.color, (self.x, self.y), self.radius)
 
 

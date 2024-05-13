@@ -1,7 +1,13 @@
 class Subject:
+    '''
+    A class representing a subject.
+    '''
     lst_subjects = []
 
     def __init__(self, ptr):
+        '''
+        Initialize the subject with its details.
+        '''
         ptr = ptr.split(';')
         self.subject = ptr[0]
         info = ptr[1].split(',')
@@ -30,6 +36,9 @@ class Subject:
 
 
 class Time:
+    '''
+    A class representing class time slots.
+    '''
     all_classes = {}
 
     def __init__(self, ptr):
@@ -46,11 +55,16 @@ class Time:
 
 
 class Schedule:
+    '''
+    A class representing a schedule.
+    '''
     days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб']
 
     @classmethod
     def make_day(cls, group, day):
-
+        '''
+        Generate the schedule for a specific day and group.
+        '''
         day_schedule_subj = []
         for subj in Subject.lst_subjects:
             if day in subj.days and str(group) in subj.groups:
@@ -95,6 +109,9 @@ class Schedule:
 
     @classmethod
     def make_schedule(cls):
+        '''
+        Generate the schedule for a group for a week.
+        '''
         group = str(input('Введите номер группы: '))
         for day in Schedule.days:
             print(Schedule.make_day(group, day))

@@ -3,11 +3,17 @@ import random
 
 
 class Track:
+    '''
+    A class representing a music track.
+    '''
     all_tracks = []
     menu = ''
     song_start_end = {}
 
     def __init__(self, ptr):
+        '''
+        Initialize the track with its song, duration, singer, and release year
+        '''
         ptr = ptr.split(';')
         self.song = ptr[0]
         self.time = ptr[1]
@@ -23,6 +29,9 @@ class Track:
 
     @classmethod
     def cr_menu(cls):
+        '''
+        Create a menu for selecting tracks.
+        '''
         for i in range(len(Track.all_tracks)):
             Track.menu += f'{i + 1}. {Track.all_tracks[i]}{'\n'}'
 
@@ -66,6 +75,9 @@ class Track:
 
     @classmethod
     def turn_on(cls, song_num):
+        '''
+        Turn on the selected track.
+        '''
         song_ch = Track.all_tracks[int(song_num) - 1]
 
         for i in range(len(Track.all_tracks)):

@@ -1,7 +1,17 @@
 class Item:
+    '''
+    A class representing an item.
+
+    Attributes:
+        code_info (dict): A dictionary containing information
+                        about item codes and their corresponding countries.
+    '''
     code_info = {}
 
     def __init__(self, ptr):
+        '''
+        Initialize the item with its code, name, price, and other details
+        '''
         ptr = ptr.split(';')
         self.code = ptr[0]
         self.name = ptr[1]
@@ -41,25 +51,38 @@ class Item:
 
     @price.setter
     def price(self, new_price):
+        '''Set the price of the item.'''
         if isinstance(new_price, int) or isinstance(new_price, float):
             if new_price > 0:
                 self.__price = new_price
 
     @price.getter
     def price(self):
+        '''
+        Get the price of the item.
+        '''
         return self.__price
 
     def set_price(self, new_price):
+        '''
+        Set the price of the item.
+        '''
         self.price=new_price
 
 
 class ShopBasket:
+    '''
+    A class representing a shopping basket.
+    '''
     lst_items = []
     lst_basket = []
     total_basketsumm = 0
 
     @classmethod
     def add_item(cls):
+        '''
+        Add an item to the shopping basket.
+        '''
         supply = ''
         for i in range(1, len(ShopBasket.lst_items) + 1):
             supply += f'{i}. {ShopBasket.lst_items[i - 1]}{'\n'}'
@@ -78,6 +101,9 @@ class ShopBasket:
 
     @classmethod
     def delete_item(cls):
+        '''
+        Delete an item from the shopping basket.
+        '''
         print(ShopBasket.show_basket())
         choice = int(input('Выберите номер товара, который хотите удалить из корзины: '))
         while choice not in range(0, len(ShopBasket.lst_basket) + 1):
@@ -96,6 +122,9 @@ class ShopBasket:
 
     @classmethod
     def show_basket(cls):
+        '''
+        Display the contents of the shopping basket.
+        '''
         basket = ''
         set_basket = set(ShopBasket.lst_basket)
         lst_set_basket = list(set_basket)

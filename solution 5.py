@@ -44,15 +44,15 @@ class Molecule:
         self.x += self.speed_x
         self.y += self.speed_y
 
-        if self.x <= self.radius:  # Если молекула касается левой границы экрана
-            self.speed_x = -self.speed_x  # Изменяем направление скорости по x
-        elif self.x >= Molecule.width - self.radius:  # Если молекула касается правой границы экрана
-            self.speed_x = -self.speed_x  # Изменяем направление скорости по x
+        if self.x <= self.radius:
+            self.speed_x = -self.speed_x
+        elif self.x >= Molecule.width - self.radius:
+            self.speed_x = -self.speed_x
 
-        if self.y <= self.radius:  # Если молекула касается верхней границы экрана
-            self.speed_y = -self.speed_y  # Изменяем направление скорости по y
-        elif self.y >= Molecule.height - self.radius:  # Если молекула касается нижней границы экрана
-            self.speed_y = -self.speed_y  # Изменяем направление скорости по y
+        if self.y <= self.radius:
+            self.speed_y = -self.speed_y
+        elif self.y >= Molecule.height - self.radius:
+            self.speed_y = -self.speed_y
 
         for oth_molecule in Molecule.all_molecules:
             if oth_molecule != self:

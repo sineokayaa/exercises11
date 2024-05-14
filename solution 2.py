@@ -136,7 +136,7 @@ class ShopBasket:
 
 with open('items.txt', 'r', encoding='utf-8') as f:
     for ptr in f:
-        Item(ptr[:-1])  # [:-1] чтобы убрать \n
+        Item(ptr[:-1])
 
 
 item = ShopBasket.lst_items[2]
